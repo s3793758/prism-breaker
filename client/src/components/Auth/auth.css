@@ -1,0 +1,14 @@
+.sign-in,
+.sign-up {
+  color: var(--white-color);
+  letter-spacing: 1px;
+}
+
+.signup-link {
+  color: var(--white-color);
+}
+
+.sign-up form {
+  width: 600px;
+  margin: 0 auto;
+}
