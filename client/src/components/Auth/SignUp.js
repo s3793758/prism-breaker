@@ -68,9 +68,7 @@ function SignUp() {
 
     try {
       const { cpassword, ...rest } = state;
-      /* const { data } = await axios.post(`${BASE_API_URL}/register`, {
-        ...rest,
-      });*/
+
       const { data } = await regiserUser({
         variables: {
           input: {

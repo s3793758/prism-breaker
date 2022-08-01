@@ -11,6 +11,29 @@
   min-height: 98vh;
 }
 
-.error-msg {
+.main-content {
+  flex: 1;
+}
+
+.error-msg,
+.success-msg {
   color: #bd5252;
+  background: #fff;
+  padding: 5px;
+  display: inline-block;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.success-msg {
+  color: #58b158;
+}
+
+.loading {
+  color: var(--white-color);
+  font-size: 20px;
+  text-align: left;
+  padding: 0 2rem;
+  letter-spacing: 1px;
 }
