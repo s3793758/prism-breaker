@@ -1,11 +1,11 @@
 .sign-in,
 .sign-up {
-  color: var(--white-color);
+  color: var(--black-color);
   letter-spacing: 1px;
 }
 
 .signup-link {
-  color: var(--white-color);
+  color: var(--black-color);
 }
 
 .sign-up form {

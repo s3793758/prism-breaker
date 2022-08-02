@@ -185,6 +185,7 @@ function SignUp() {
             <Option value="">Please select a gender</Option>
             <Option value="male">Male</Option>
             <Option value="female">Female</Option>
+            <Option value="Other">Other</Option>
           </Select>
         </Form.Item>
         <Button type="primary" htmlType="submit">
