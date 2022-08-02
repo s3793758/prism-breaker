@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, Select } from 'antd';
+import { BASE_API_URL } from '../../utils/constants';
+import Header from '../Header/Header';
+import { useMutation } from '@apollo/client';
+import { REGISTER_USER } from '../../utils/mutations';
 
 const { Option } = Select;
 
@@ -41,7 +45,6 @@ function SignUp() {
   };
 
   const handleSubmit = async () => {
-    // event.preventDefault();
     console.log({ state });
 
     const allFieldsEntered = Object.keys(state).every(

@@ -47,8 +47,6 @@ function SignIn() {
     console.log(state);
 
     try {
-     
-
       const { data } = await loginUser({
         variables: {
           ...state,
