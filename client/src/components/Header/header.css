@@ -1,0 +1,7 @@
+.header {
+  padding: 2rem;
+}
+
+.header h1 {
+  color: var(--black-color);
+}
