@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Form, Button } from 'antd';
-import './auth.css';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../../utils/mutations';
 import AuthContext from '../../context/AuthContext';
@@ -10,7 +9,7 @@ function SignIn() {
   const [form] = Form.useForm();
   const { user, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const [state, setState] = useState({
     email: '',
     password: '',
@@ -20,7 +19,7 @@ function SignIn() {
   const [loginUser] = useMutation(LOGIN_USER);
   useEffect(() => {
     if (user?._id) {
-      navigate('/profile');
+      // navigate('/profile');
     }
   }, []);
 

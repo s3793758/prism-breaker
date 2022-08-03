@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, Select } from 'antd';
-import { BASE_API_URL } from '../../utils/constants';
-import Header from '../Header/Header';
+import './auth.css';
 import { useMutation } from '@apollo/client';
 import { REGISTER_USER } from '../../utils/mutations';
 
@@ -45,6 +44,7 @@ function SignUp() {
   };
 
   const handleSubmit = async () => {
+    // event.preventDefault();
     console.log({ state });
 
     const allFieldsEntered = Object.keys(state).every(
@@ -71,7 +71,9 @@ function SignUp() {
 
     try {
       const { cpassword, ...rest } = state;
-
+      /* const { data } = await axios.post(`${BASE_API_URL}/register`, {
+        ...rest,
+      });*/
       const { data } = await regiserUser({
         variables: {
           input: {
@@ -185,7 +187,6 @@ function SignUp() {
             <Option value="">Please select a gender</Option>
             <Option value="male">Male</Option>
             <Option value="female">Female</Option>
-            <Option value="Other">Other</Option>
           </Select>
         </Form.Item>
         <Button type="primary" htmlType="submit">
