@@ -1,0 +1,9 @@
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
+  background-color: #9e0b0f !important;
+}
