@@ -1,16 +1,27 @@
 import { useState } from 'react';
-import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
-
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useNavigate,
+  Navigate,
+} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-
 import SignIn from './components/Auth/SignIn';
+import SignUp from './components/Auth/SignUp';
 import AuthContext from './context/AuthContext';
+// import Index from './index';
+import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import SignUp from './components/Auth/SignUp';
+import AppDrawer from './components/AppDrawer/AppDrawer';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import Home from './components/Home/Home';
+import Profile from './components/Profile/Profile';
+import PublicProfile from './components/PublicProfile/PublicProfile';
 
 function App() {
+  const [searchedUser, setSearchedUser] = useState('');
   const [user, setUser] = useState(() => {
     try {
       const user = JSON.parse(localStorage.getItem('user')) || null;
@@ -19,11 +30,6 @@ function App() {
       return null;
     }
   });
-
-  console.log({ user });
-
-  const isLoggedIn = !!user?._id;
-  console.count('rendered');
 
   const updateUser = (user) => {
     if (user) {
@@ -41,18 +47,53 @@ function App() {
       return false;
     }
   };
+
+  const updateSearchText = (searchText) => {
+    setSearchedUser(searchText);
+  };
+
+  console.log({ user });
+
+  const isLoggedIn = !!user?._id;
+  console.count('rendered');
+
   return (
     <div className="App">
-      <div className="container">
+      <AppDrawer />
+      <div className="container app-container">
         <BrowserRouter>
           <AuthContext.Provider
-            value={{ user, updateUser, isLoggedIn, logoutUser }}
+            value={{
+              user,
+              updateUser,
+              isLoggedIn,
+              logoutUser,
+              searchedUser,
+              updateSearchText,
+            }}
           >
             <Header />
             <Routes>
               <Route path="/" element={<Navigate to="/login" />} />
               <Route path="/login" element={<SignIn />} />
               <Route path="/register" element={<SignUp />} />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <Profile />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/home"
+                element={
+                  <ProtectedRoute>
+                    <Home />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/profile/:username" element={<PublicProfile />} />
             </Routes>
             <Footer />
           </AuthContext.Provider>

@@ -1,0 +1,23 @@
+.posts-list .post-message {
+    font-size: 18px;
+    color: var(--black-color);
+    margin-left: auto;
+  }
+  
+  .posts-list .post-author {
+    color: var(--black-color);
+  }
+  
+  .posts-list .post-content {
+    margin-right: auto;
+  }
+  .posts-list .post-image {
+    width: 200px;
+    height: auto;
+  }
+  .posts-list .more-icon .down-arrow {
+    color: #fff;
+    font-size: 25px;
+    padding-right: 1rem;
+    cursor: pointer;
+  }

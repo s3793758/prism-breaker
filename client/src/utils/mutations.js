@@ -28,3 +28,17 @@ export const REGISTER_USER = gql`
     }
   }
 `;
+
+export const UPLOAD_PROFILE_IMAGE = gql`
+  mutation uploadProfileImage($image: String!) {
+    uploadProfileImage(image: $image) {
+      _id
+      first_name
+      last_name
+      email
+      phone
+      gender
+      dateOfBirth
+    }
+  }
+`;

@@ -1,0 +1,24 @@
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.race-image {
+  width: 150px;
+  height: 150px;
+}
+
+.user-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.user-info {
+  color: #eee;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
