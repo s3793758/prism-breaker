@@ -8,6 +8,7 @@ import SignIn from './components/Auth/SignIn';
 import AuthContext from './context/AuthContext';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Navbar from './components/Nav/Navbar';
 
 function App() {
   const [user, setUser] = useState(() => {
@@ -44,16 +45,16 @@ function App() {
     <div className="App">
       <div className="container">
         <BrowserRouter>
-          <Header />
           <AuthContext.Provider
             value={{ user, updateUser, isLoggedIn, logoutUser }}
           >
+            <Header />
             <Routes>
               <Route path="/" element={<Navigate to="/login" />} />
               <Route path="/login" element={<SignIn />} />
             </Routes>
+            <Footer />
           </AuthContext.Provider>
-          <Footer />
         </BrowserRouter>
       </div>
     </div>
