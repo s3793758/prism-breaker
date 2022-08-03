@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const res = useContext(AuthContext);
-  const { isLoggedIn, logoutUser } = res;
+  const { isLoggedIn, logoutUser } = useContext(AuthContext);
   console.log({ res });
   const navigate = useNavigate();
   let items = [];
