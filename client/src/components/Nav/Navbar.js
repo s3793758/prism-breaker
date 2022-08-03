@@ -72,7 +72,7 @@ const Navbar = () => {
       <Menu
         items={items}
         mode="horizontal"
-        theme="dark"
+        theme="grey"
         onClick={handleClick}
       />
     </>

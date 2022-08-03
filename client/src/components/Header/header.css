@@ -5,3 +5,7 @@
 .header h1 {
   color: var(--black-color);
 }
+
+.ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark {
+  color: yellow !important;
+}

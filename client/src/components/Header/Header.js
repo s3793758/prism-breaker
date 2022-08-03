@@ -9,7 +9,7 @@ const Header = () => {
       <Link to="/">
         <h1>Prism-Breaker</h1>
       </Link>
-      <Navbar />
+      <Navbar className="navBar" />
     </header>
   );
 };
