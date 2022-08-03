@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+
 export const GET_ALL_POSTS = gql`
   query posts {
     posts {
@@ -15,6 +16,7 @@ export const GET_ALL_POSTS = gql`
     }
   }
 `;
+
 export const GET_USER_POSTS = gql`
   query posts($userId: String) {
     posts(userId: $userId) {
@@ -31,9 +33,10 @@ export const GET_USER_POSTS = gql`
     }
   }
 `;
+
 export const GET_USER_DETAILS = gql`
-  query userDetails($userId: ID!) {
-    userDetails(userId: $userId) {
+  query userDetails($username: String!) {
+    userDetails(username: $username) {
       userId
       userRole
       gamingName
@@ -42,9 +45,10 @@ export const GET_USER_DETAILS = gql`
     }
   }
 `;
+
 export const GET_GAME_DETAILS = gql`
-  query gameDetails($userId: ID!) {
-    gameDetails(userId: $userId) {
+  query gameDetails($username: String!) {
+    gameDetails(username: $username) {
       userId
       race {
         index
@@ -55,6 +59,28 @@ export const GET_GAME_DETAILS = gql`
         index
         name
         url
+      }
+    }
+  }
+`;
+export const GET_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      email
+      first_name
+      last_name
+      profileImage
+      dateOfBirth
+      phone
+      posts {
+        _id
+        userId {
+          profileImage
+        }
+        postMessage
+        postImage
+        createdAt
       }
     }
   }

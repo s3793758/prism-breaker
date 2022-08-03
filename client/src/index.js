@@ -1,11 +1,18 @@
-import App from './App';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
 import 'antd/dist/antd.min.css';
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
-import './index.css';
+import { createUploadLink } from 'apollo-upload-client';
+
+const uploadLink = createUploadLink({
+  uri: 'http://localhost:3030/graphql',
+});
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3030/graphql',
+  link: uploadLink,
+  //  uri: 'http://localhost:3030/graphql',
   cache: new InMemoryCache(),
 });
 
