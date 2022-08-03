@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from '@apollo/client';
 import React, { useEffect } from 'react';
 import { GET_ALL_POSTS } from '../../utils/queries';
+import Header from '../Header/Header';
 import Posts from '../Posts/Posts';
 import './home.css';
 

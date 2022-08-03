@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './header.css';
 import Navbar from '../Nav/Navbar';
+import Search from '../Search/Search';
 
 const Header = () => {
+  const [showSearch, setShowSearch] = useState(false);
+
+  const toggleSearch = () => {
+    setShowSearch((show) => !show);
+  };
+
   return (
     <header className="header">
       <Link to="/">
         <h1>Prism-Breaker</h1>
       </Link>
-      <Navbar className="navBar" />
+      <Navbar showSearch={showSearch} toggleSearch={toggleSearch} />
+      {showSearch && <Search toggleSearch={toggleSearch} />}
     </header>
   );
 };

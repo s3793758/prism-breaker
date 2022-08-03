@@ -8,29 +8,32 @@ import {
   LoginOutlined,
   ProfileOutlined,
   SmileOutlined,
+  SearchOutlined,
 } from '@ant-design/icons';
 import './navbar.css';
 import AuthContext from '../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
-  const res = useContext(AuthContext);
-  const { isLoggedIn, logoutUser } = useContext(AuthContext);
-  console.log({ res });
+const Navbar = ({ toggleSearch, showSearch }) => {
+  const { isLoggedIn, logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
   let items = [];
   if (isLoggedIn) {
     items = [
       {
+        label: 'Search',
+        key: 'search',
+        icon: <SearchOutlined />,
+      },
+      {
         label: 'Prism-Breaker',
         key: 'Prism-Breake',
         icon: <RadarChartOutlined />,
+        id: 'prism-breaker',
       }, // remember to pass the key prop
       { label: 'Home', key: 'home', icon: <HomeOutlined /> }, // which is required
       { label: 'Messages', key: 'message', icon: <MailOutlined /> }, // which is required
-      { label: 'Profile', key: 'profile', icon: <ProfileOutlined /> }, // which is required
-
-      { label: 'Profile', key: '{name}', icon: <SmileOutlined /> }, // which is required
+      { label: 'Profile', key: 'profile', icon: <SmileOutlined /> }, // which is required
       {
         label: 'Logout',
         key: 'logout',
@@ -39,20 +42,25 @@ const Navbar = () => {
     ];
   } else {
     items = [
+      { label: 'Home', key: 'home', icon: <HomeOutlined /> }, // which is required
       {
         label: 'Prism-Breaker',
         key: 'Prism-Breake',
         icon: <RadarChartOutlined />,
+        id: 'prism-breaker',
       }, // remember to pass the key prop
-
+      { label: 'Messages', key: 'message', icon: <MailOutlined /> }, // which is required
       { label: 'Login', key: 'login', icon: <LoginOutlined /> }, // which is required
     ];
   }
 
   const handleClick = ({ item, key }) => {
+    toggleSearch();
     switch (key) {
       case 'home':
         navigate('/home');
+        break;
+      case 'search':
         break;
       case 'profile':
         navigate('/profile');
@@ -74,7 +82,7 @@ const Navbar = () => {
       <Menu
         items={items}
         mode="horizontal"
-        theme="grey"
+        theme="dark"
         onClick={handleClick}
       />
     </>
