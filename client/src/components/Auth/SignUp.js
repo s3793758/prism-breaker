@@ -96,6 +96,7 @@ function SignUp() {
     <div className="sign-up">
       <div style={{ marginBottom: '20px' }}>
         <p> Sign up to Prisim-Breaker</p>
+        <hr />
       </div>
       <Form
         onFinish={handleSubmit}
@@ -187,11 +188,13 @@ function SignUp() {
             <Option value="">Please select a gender</Option>
             <Option value="male">Male</Option>
             <Option value="female">Female</Option>
+            <Option value="other">Other</Option>
           </Select>
         </Form.Item>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>
+        <hr />
       </Form>
     </div>
   );

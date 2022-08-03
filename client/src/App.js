@@ -8,7 +8,7 @@ import SignIn from './components/Auth/SignIn';
 import AuthContext from './context/AuthContext';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Navbar from './components/Nav/Navbar';
+import SignUp from './components/Auth/SignUp';
 
 function App() {
   const [user, setUser] = useState(() => {
@@ -52,6 +52,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Navigate to="/login" />} />
               <Route path="/login" element={<SignIn />} />
+              <Route path="/register" element={<SignUp />} />
             </Routes>
             <Footer />
           </AuthContext.Provider>
