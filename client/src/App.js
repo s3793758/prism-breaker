@@ -1,75 +1,31 @@
 import { useState } from 'react';
-import SignIn from './components/Auth/SignIn';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import SignUp from './components/Auth/SignUp';
-import Home from './components/Home/Home';
+import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+
+import SignIn from './components/Auth/SignIn';
 import AuthContext from './context/AuthContext';
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 function App() {
-  const [user, setUser] = useState(() => {
-    try {
-      const user = JSON.parse(localStorage.getItem('user')) || null;
-      return user;
-    } catch (error) {
-      return null;
-    }
-  });
-
-  const updateUser = (user) => {
-    if (user) {
-      setUser(user);
-    }
-  };
-
-  const logoutUser = async () => {
-    return localStorage.removeItem('user');
-  };
-
-  console.log({ user });
-
-  const isLoggedIn = !!user?._id;
-
+  const [user, setUser] = useState(null);
+  if (user) {
+    setUser(user);
+  }
   return (
     <div className="App">
       <div className="container">
         <BrowserRouter>
-          <AuthContext.Provider
-            value={{ user, updateUser, isLoggedIn, logoutUser }}
-          >
+          <Header />
+          <AuthContext.Provider value={{ user, setUser }}>
             <Routes>
               <Route path="/" element={<Navigate to="/login" />} />
-              <Route
-                path="/login"
-                element={<SignIn updateUser={updateUser} />}
-              />
-              <Route
-                path="/register"
-                element={<SignUp updateUser={updateUser} />}
-              />
-
-              <Route path="/" element={<Navigate to="/login" />} />
-              <Route
-                path="/login"
-                element={
-                  <ProtectedRoute>
-                    <SignIn />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="/register" element={<SignUp />} />
-              <Route
-                path="/home"
-                element={
-                  <ProtectedRoute>
-                    <Home />
-                  </ProtectedRoute>
-                }
-              />
+              <Route path="/login" element={<SignIn />} />
             </Routes>
           </AuthContext.Provider>
+          <Footer />
         </BrowserRouter>
       </div>
     </div>
