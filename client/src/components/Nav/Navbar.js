@@ -7,6 +7,7 @@ import {
   LogoutOutlined,
   LoginOutlined,
   ProfileOutlined,
+  SmileOutlined,
 } from '@ant-design/icons';
 import './navbar.css';
 import AuthContext from '../../context/AuthContext';
@@ -28,6 +29,8 @@ const Navbar = () => {
       { label: 'Home', key: 'home', icon: <HomeOutlined /> }, // which is required
       { label: 'Messages', key: 'message', icon: <MailOutlined /> }, // which is required
       { label: 'Profile', key: 'profile', icon: <ProfileOutlined /> }, // which is required
+
+      { label: 'Profile', key: '{name}', icon: <SmileOutlined /> }, // which is required
       {
         label: 'Logout',
         key: 'logout',
