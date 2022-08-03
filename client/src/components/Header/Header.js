@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './header.css';
 import Navbar from '../Nav/Navbar';
-import Search from '../Search/Search';
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);

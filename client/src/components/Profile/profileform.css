@@ -1,0 +1,8 @@
+.user-details h2 {
+  margin-top: 1rem;
+}
+
+.user-details input {
+  width: 100%;
+  padding: 5px;
+}
