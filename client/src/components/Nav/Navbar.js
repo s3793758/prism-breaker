@@ -39,13 +39,12 @@ const Navbar = () => {
     ];
   } else {
     items = [
-      { label: 'Home', key: 'home', icon: <HomeOutlined /> }, // which is required
       {
         label: 'Prism-Breaker',
         key: 'Prism-Breake',
         icon: <RadarChartOutlined />,
       }, // remember to pass the key prop
-      { label: 'Messages', key: 'message', icon: <MailOutlined /> }, // which is required
+
       { label: 'Login', key: 'login', icon: <LoginOutlined /> }, // which is required
     ];
   }

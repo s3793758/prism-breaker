@@ -29,3 +29,11 @@
 .success-msg {
   color: #58b158;
 }
+
+.loading {
+  color: var(--white-color);
+  font-size: 20px;
+  text-align: left;
+  padding: 0 2rem;
+  letter-spacing: 1px;
+}

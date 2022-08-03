@@ -9,7 +9,7 @@ function SignIn() {
   const [form] = Form.useForm();
   const { user, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  // const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [state, setState] = useState({
     email: '',
     password: '',
@@ -19,7 +19,7 @@ function SignIn() {
   const [loginUser] = useMutation(LOGIN_USER);
   useEffect(() => {
     if (user?._id) {
-      // navigate('/profile');
+      navigate('/profile');
     }
   }, []);
 
@@ -46,6 +46,11 @@ function SignIn() {
     console.log(state);
 
     try {
+      /*  const { data } = await axios.post(`${BASE_API_URL}/login`, {
+        ...state,
+      });
+      console.log(data);*/
+
       const { data } = await loginUser({
         variables: {
           ...state,

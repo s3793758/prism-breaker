@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Button, Form, Input, Select } from 'antd';
 import './auth.css';
 import { useMutation } from '@apollo/client';
@@ -9,7 +10,8 @@ const { Option } = Select;
 const initialState = {
   first_name: '',
   last_name: '',
-  gender: '',
+  username: '',
+  gender: 'Male',
   email: '',
   password: '',
   cpassword: '',
@@ -86,7 +88,7 @@ function SignUp() {
       console.log('response', data);
     } catch (error) {
       console.log(error);
-      setErrorMsg('User registration failed. Try again later.');
+      setErrorMsg(error.message);
       setSuccessMsg('');
     }
   };
@@ -96,7 +98,6 @@ function SignUp() {
     <div className="sign-up">
       <div style={{ marginBottom: '20px' }}>
         <p> Sign up to Prisim-Breaker</p>
-        <hr />
       </div>
       <Form
         onFinish={handleSubmit}
@@ -109,6 +110,7 @@ function SignUp() {
         {errorMsg && <p className="error-msg">{errorMsg}</p>}
         {successMsg && <p className="success-msg">{successMsg}</p>}
         <Form.Item>
+          <label className="input-label">First Name</label>
           <Input
             label="first_name"
             type="text"
@@ -119,6 +121,7 @@ function SignUp() {
           />
         </Form.Item>
         <Form.Item>
+          <label className="input-label">Last Name</label>
           <Input
             type="text"
             label="last_name"
@@ -129,6 +132,18 @@ function SignUp() {
           />
         </Form.Item>
         <Form.Item>
+          <label className="input-label">Username</label>
+          <Input
+            type="text"
+            label="username"
+            name="username"
+            value={state.username}
+            placeholder="Username"
+            onChange={handleOnChange}
+          />
+        </Form.Item>
+        <Form.Item>
+          <label className="input-label">Email</label>
           <Input
             type="email"
             name="email"
@@ -139,6 +154,7 @@ function SignUp() {
           />
         </Form.Item>
         <Form.Item>
+          <label className="input-label">Phone number</label>
           <Input
             type="number"
             name="phone"
@@ -149,6 +165,7 @@ function SignUp() {
           />
         </Form.Item>
         <Form.Item>
+          <label className="input-label">Password</label>
           <Input
             type="password"
             name="password"
@@ -159,6 +176,7 @@ function SignUp() {
           />
         </Form.Item>
         <Form.Item>
+          <label className="input-label">Confirm Password</label>
           <Input
             type="password"
             name="cpassword"
@@ -169,6 +187,7 @@ function SignUp() {
           />
         </Form.Item>
         <Form.Item>
+          <label className="input-label">Date of birth</label>
           <Input
             type="date"
             name="dateOfBirth"
@@ -179,6 +198,7 @@ function SignUp() {
           />
         </Form.Item>
         <Form.Item>
+          <label className="input-label">Gender</label>
           <Select
             defaultValue={state.gender}
             name="gender"
@@ -188,13 +208,11 @@ function SignUp() {
             <Option value="">Please select a gender</Option>
             <Option value="male">Male</Option>
             <Option value="female">Female</Option>
-            <Option value="other">Other</Option>
           </Select>
         </Form.Item>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>
-        <hr />
       </Form>
     </div>
   );

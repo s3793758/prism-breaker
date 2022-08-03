@@ -1,0 +1,38 @@
+.hamburger {
+  margin-top: 5rem;
+  padding-left: 1rem;
+  font-size: 25px;
+}
+
+.drawer .ant-drawer-wrapper-body {
+  background: var(--black-color);
+}
+
+.ant-drawer-body h2 {
+  color: #fff;
+}
+
+.ant-drawer-body .menu-list {
+  padding: 0;
+  margin: 0;
+  padding-left: 1rem;
+  list-style: none;
+  color: #fff;
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+.ant-drawer-body .menu-list-item {
+  cursor: pointer;
+}
+
+.ant-drawer-body hr {
+  color: #fff;
+  height: 2px;
+}
+
+button.ant-drawer-close,
+button.ant-drawer-close:focus,
+button.ant-drawer-close:hover {
+  color: #fff;
+}
