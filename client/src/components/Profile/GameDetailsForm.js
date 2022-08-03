@@ -6,15 +6,22 @@ import AuthContext from '../../context/AuthContext';
 import { UPDATE_GAME_DETAILS } from '../../utils/mutations';
 import { GET_GAME_DETAILS } from '../../utils/queries';
 import './profileform.css';
+
 const { Option } = Select;
-const GameDetailsForm = () => {
-  const { user } = useContext(AuthContext);
+
+const GameDetailsForm = ({ readOnly }) => {
+  let { user, searchedUser } = useContext(AuthContext);
+
+  if (!searchedUser) {
+    searchedUser = user.username;
+  }
   const { data } = useQuery(GET_GAME_DETAILS, {
     variables: {
-      userId: user._id,
+      username: readOnly ? searchedUser : user.username,
     },
   });
   console.log({ data });
+
   const [race, setRace] = useState({
     index: '',
     name: '',
@@ -41,6 +48,7 @@ const GameDetailsForm = () => {
       }
     };
     getRaces();
+
     const getClasses = async () => {
       try {
         const { data } = await axios.get('https://www.dnd5eapi.co/api/classes');
@@ -77,6 +85,7 @@ const GameDetailsForm = () => {
       });
     }
   }, [data?.gameDetails]);
+
   const handleRaceTypeChange = (value) => {
     const selectedRace = racesList.find((item) => item.index === value);
     setRace(selectedRace);
@@ -118,54 +127,68 @@ const GameDetailsForm = () => {
       setSuccessMsg('');
     }
   };
+
   return (
-    <Form
-      onFinish={handleSubmit}
-      form={form}
-      name="userDetailsForm"
-      className="user-details"
-    >
-      <h2>Race Details</h2>
-      {errorMsg && <p className="error-msg">{errorMsg}</p>}
-      {successMsg && <p className="success-msg">{successMsg}</p>}
-
-      <Form.Item>
-        <label>Please select a race</label>
-        <Select
-          value={race.index}
-          name="race"
-          label="Race Type"
-          onChange={handleRaceTypeChange}
+    <>
+      {!readOnly ? (
+        <Form
+          onFinish={handleSubmit}
+          form={form}
+          name="userDetailsForm"
+          className="user-details"
         >
-          <Option value="">Please select your race type</Option>
-          {racesList.map((raceItem) => (
-            <Option value={raceItem.index} key={raceItem.index}>
-              {raceItem.name}
-            </Option>
-          ))}
-        </Select>
-      </Form.Item>
-      <Form.Item>
-        <label>Please select a class</label>
-        <Select
-          value={selectedClass.index}
-          name="class"
-          label="Class"
-          onChange={handleClassChange}
-        >
-          <Option value="">Please select your class</Option>
-          {classesList.map((classItem) => (
-            <Option value={classItem.index} key={classItem.index}>
-              {classItem.name}
-            </Option>
-          ))}
-        </Select>
-      </Form.Item>
+          <h2>Race Details</h2>
+          {errorMsg && <p className="error-msg">{errorMsg}</p>}
+          {successMsg && <p className="success-msg">{successMsg}</p>}
 
-      <Button type="primary" htmlType="submit">
-        Update
-      </Button>
-    </Form>
+          <Form.Item>
+            <label>Please select a race</label>
+            <Select
+              value={race.index}
+              name="race"
+              label="Race Type"
+              onChange={handleRaceTypeChange}
+            >
+              <Option value="">Please select your race type</Option>
+              {racesList.map((raceItem) => (
+                <Option value={raceItem.index} key={raceItem.index}>
+                  {raceItem.name}
+                </Option>
+              ))}
+            </Select>
+          </Form.Item>
+          <Form.Item>
+            <label>Please select a class</label>
+            <Select
+              value={selectedClass.index}
+              name="class"
+              label="Class"
+              onChange={handleClassChange}
+            >
+              <Option value="">Please select your class</Option>
+              {classesList.map((classItem) => (
+                <Option value={classItem.index} key={classItem.index}>
+                  {classItem.name}
+                </Option>
+              ))}
+            </Select>
+          </Form.Item>
+
+          <Button type="primary" htmlType="submit">
+            Update
+          </Button>
+        </Form>
+      ) : (
+        <>
+          <h2 style={{ marginTop: '1rem' }}>Race Details</h2>
+          <div className="user-info">
+            <div>User Race: {race.index}</div>
+            <div>User Class: {selectedClass.index}</div>
+          </div>
+        </>
+      )}
+    </>
   );
 };
+
 export default GameDetailsForm;
