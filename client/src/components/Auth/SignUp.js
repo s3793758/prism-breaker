@@ -97,6 +97,7 @@ function SignUp() {
   return (
     <div className="sign-up">
       <div style={{ marginBottom: '20px' }}>
+        <hr />
         <p> Sign up to Prisim-Breaker</p>
       </div>
       <Form
@@ -213,6 +214,7 @@ function SignUp() {
         <Button type="primary" htmlType="submit">
           Submit
         </Button>
+        <hr />
       </Form>
     </div>
   );

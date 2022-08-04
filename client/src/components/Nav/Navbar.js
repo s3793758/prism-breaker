@@ -21,17 +21,22 @@ const Navbar = ({ toggleSearch, showSearch }) => {
   if (isLoggedIn) {
     items = [
       {
-        label: 'prism-breaker',
+        label: 'Prism-Breaker',
         key: 'Prism-Breake',
         icon: <RadarChartOutlined />,
-      }, // remember to pass the key prop
+      },
       {
         label: 'Search',
         key: 'search',
         icon: <SearchOutlined />,
-        id: 'prism-breaker',
       },
-      { label: 'Home', key: 'home', icon: <HomeOutlined /> }, // which is required
+      // remember to pass the key prop
+      {
+        label: 'Home',
+        key: 'home',
+        icon: <HomeOutlined />,
+        id: 'prism-breaker',
+      }, // which is required
       { label: 'Messages', key: 'message', icon: <MailOutlined /> }, // which is required
       { label: 'Profile', key: 'profile', icon: <SmileOutlined /> }, // which is required
       {
@@ -42,14 +47,14 @@ const Navbar = ({ toggleSearch, showSearch }) => {
     ];
   } else {
     items = [
-      { label: 'Home', key: 'home', icon: <HomeOutlined /> }, // which is required
+      // { label: 'Home', key: 'home', icon: <HomeOutlined /> }, // which is required
       {
         label: 'Prism-Breaker',
         key: 'Prism-Breake',
         icon: <RadarChartOutlined />,
         id: 'prism-breaker',
       }, // remember to pass the key prop
-      { label: 'Messages', key: 'message', icon: <MailOutlined /> }, // which is required
+      // { label: 'Messages', key: 'message', icon: <MailOutlined /> }, // which is required
       { label: 'Login', key: 'login', icon: <LoginOutlined /> }, // which is required
     ];
   }
