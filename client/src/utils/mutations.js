@@ -32,16 +32,9 @@ export const REGISTER_USER = gql`
 `;
 
 export const UPLOAD_PROFILE_IMAGE = gql`
-  mutation uploadProfileImage($image: String!, $userId: ID!) {
+  mutation uploadProfileImage($image: Upload!, $userId: ID!) {
     uploadProfileImage(image: $image, userId: $userId) {
-      _id
-      first_name
-      last_name
-      email
-      phone
-      gender
-      dateOfBirth
-      profileImage
+      filePath
     }
   }
 `;
