@@ -21,3 +21,8 @@
   background-color: #e7e7db !important;
   border-bottom: 3px solid #9e0b0f !important;
 }
+
+.ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected,
+.ant-menu.ant-menu-dark .ant-menu-item-selected {
+  background-color: #9e0b0f !important;
+}
