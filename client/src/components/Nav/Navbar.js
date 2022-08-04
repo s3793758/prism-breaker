@@ -21,16 +21,16 @@ const Navbar = ({ toggleSearch, showSearch }) => {
   if (isLoggedIn) {
     items = [
       {
+        label: 'prism-breaker',
+        key: 'Prism-Breake',
+        icon: <RadarChartOutlined />,
+      }, // remember to pass the key prop
+      {
         label: 'Search',
         key: 'search',
         icon: <SearchOutlined />,
-      },
-      {
-        label: 'Prism-Breaker',
-        key: 'Prism-Breake',
-        icon: <RadarChartOutlined />,
         id: 'prism-breaker',
-      }, // remember to pass the key prop
+      },
       { label: 'Home', key: 'home', icon: <HomeOutlined /> }, // which is required
       { label: 'Messages', key: 'message', icon: <MailOutlined /> }, // which is required
       { label: 'Profile', key: 'profile', icon: <SmileOutlined /> }, // which is required

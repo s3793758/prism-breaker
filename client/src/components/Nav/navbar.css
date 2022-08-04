@@ -2,13 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: var(--black-color);
+  background-color: #e7e7db;
+  border-bottom: 3px solid #9e0b0f;
 }
 
 .ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
   background-color: #9e0b0f !important;
+  color: var(--black-color);
 }
 
-.ant-menu-item {
-  background-color: #e7e7db;
-  border-bottom: 3px solid #9e0b0f;
+#prism-breaker {
+  margin-right: auto;
 }
