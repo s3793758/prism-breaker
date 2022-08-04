@@ -3,8 +3,7 @@
   justify-content: center;
   align-items: center;
   color: var(--black-color);
-  background-color: #e7e7db !important;
-  border-bottom: 3px solid #9e0b0f;
+  background-color: #e7e7db;
 }
 
 .ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
@@ -14,4 +13,11 @@
 
 #prism-breaker {
   margin-right: auto;
+}
+
+.ant-menu-dark .ant-menu-sub,
+.ant-menu.ant-menu-dark,
+.ant-menu.ant-menu-dark .ant-menu-sub {
+  background-color: #e7e7db !important;
+  border-bottom: 3px solid #9e0b0f !important;
 }
