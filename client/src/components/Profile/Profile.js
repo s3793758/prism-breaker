@@ -183,7 +183,6 @@ const Profile = () => {
               {successMessage && (
                 <p className="success-msg">{successMessage}</p>
               )}
-              <label>Add A Comment</label>
               <Form.Item className="comments-form">
                 <TextArea
                   rows={4}
@@ -212,6 +211,7 @@ const Profile = () => {
                   <Button type="primary" htmlType="submit">
                     Post
                   </Button>
+                  <hr />
                 </div>
               </div>
             </Form>
