@@ -186,21 +186,46 @@ const resolvers = {
         throw new Error('Error while updating game details.');
       }
     },
-    uploadProfileImage: async (parent, args, context) => {
+    uploadProfileImage: async (parent, { image, userId }, context) => {
       try {
-        const user = await User.findOne({ _id: args.userId });
+        console.log({ image });
+        const { createReadStream, filename, mimetype, encoding } =
+          await image?.file;
+
+        console.log();
+
+        // Invoking the `createReadStream` will return a Readable Stream.
+        // See https://nodejs.org/api/stream.html#stream_readable_streams
+        const stream = createReadStream();
+        const filePath = path.join(__dirname, '..', `images/${filename}`);
+
+        // This is purely for demonstration purposes and will overwrite the
+        // local-file-output.txt in the current working directory on EACH upload.
+        const out = fs.createWriteStream(filePath);
+        stream.pipe(out);
+
+        await sleep(1000);
+
+        const user = await User.findOne({ _id: userId });
         if (!user) {
-          throw new Err('Invalid userId');
+          throw new Error('Inavlid user id');
         }
-        const response = await cloudinary.uploader.upload(args.image, {
-          folder: `images/profile_pics/user_${args.userId}}`,
+
+        const response = await cloudinary.uploader.upload(filePath, {
+          folder: `images/post_images`,
         });
 
         user.profileImage = response.secure_url;
         await user.save();
-        return user;
+
+        console.log({ url: response });
+
+        // fs.unlinkSync(filePath);
+
+        return { filePath: response.secure_url };
       } catch (error) {
-        throw new Error(error.message);
+        console.log({ error });
+        throw new Error('Eror while adding post');
       }
     },
     singleUpload: async (parent, { file, userId, postId }) => {
@@ -216,10 +241,11 @@ const resolvers = {
 
         // This is purely for demonstration purposes and will overwrite the
         // local-file-output.txt in the current working directory on EACH upload.
+
         const out = fs.createWriteStream(filePath);
         stream.pipe(out);
 
-        await sleep(200);
+        await sleep(1000);
 
         const user = await User.findOne({ _id: userId });
         if (!user) {
@@ -243,9 +269,9 @@ const resolvers = {
           }
         );
 
-        await sleep(200);
+        //  await sleep(200);
 
-        fs.unlinkSync(filePath);
+        //  fs.unlinkSync(filePath);
 
         return { filePath: response.secure_url };
       } catch (error) {
