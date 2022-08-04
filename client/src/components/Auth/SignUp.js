@@ -97,9 +97,9 @@ function SignUp() {
   return (
     <div className="sign-up">
       <div style={{ marginBottom: '20px' }}>
-        <hr />
         <p> Sign up to Prisim-Breaker</p>
       </div>
+      <hr />
       <Form
         onFinish={handleSubmit}
         form={form}
