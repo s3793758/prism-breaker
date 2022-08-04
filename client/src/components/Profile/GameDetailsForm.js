@@ -177,6 +177,7 @@ const GameDetailsForm = ({ readOnly }) => {
           <Button type="primary" htmlType="submit">
             Update
           </Button>
+          <hr />
         </Form>
       ) : (
         <>
