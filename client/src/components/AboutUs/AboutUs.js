@@ -47,7 +47,8 @@ const AboutUs = () => {
           <div className="slide-container">
             <img src={WP4} alt="Slide 4" />
             <p className="content-text">
-              We are not affilated with wizard gameing
+              We are not affilated with wizard gameing. I do not own the rights
+              of these photos, they are copied from google images
             </p>
           </div>
         </Carousel>
