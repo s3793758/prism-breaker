@@ -99,6 +99,7 @@ const ProfileDetailsForm = ({ readOnly }) => {
   };
   return (
     <>
+      <hr />
       {!readOnly ? (
         <Form
           onFinish={handleSubmit}
@@ -159,6 +160,7 @@ const ProfileDetailsForm = ({ readOnly }) => {
           <Button type="primary" htmlType="submit">
             Update
           </Button>
+          <hr />
         </Form>
       ) : (
         <>
