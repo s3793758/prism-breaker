@@ -243,6 +243,8 @@ const resolvers = {
           }
         );
 
+        await sleep(200);
+
         fs.unlinkSync(filePath);
 
         return { filePath: response.secure_url };

@@ -7,7 +7,7 @@ const style = {
   background: '#000',
   width: '200px',
 };
-const AppDrawer = () => {
+const AppDrawer = ({ isLoggedIn }) => {
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -19,7 +19,9 @@ const AppDrawer = () => {
   };
   return (
     <div className="drawer">
-      <MenuOutlined className="hamburger" onClick={showDrawer} />
+      {isLoggedIn && (
+        <MenuOutlined className="hamburger" onClick={showDrawer} />
+      )}
       <Drawer
         placement="left"
         onClose={onClose}

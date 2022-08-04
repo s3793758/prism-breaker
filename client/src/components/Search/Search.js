@@ -16,7 +16,7 @@ const Search = ({ toggleSearch }) => {
   const handleSubmit = () => {
     console.log({ searchText });
     updateSearchText(searchText);
-    toggleSearch();
+    toggleSearch(false);
     navigate(`/profile/${searchText}`);
   };
   return (
