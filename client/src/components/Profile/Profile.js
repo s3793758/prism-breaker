@@ -47,6 +47,7 @@ const Profile = () => {
         console.log(info.file?.originFileObj, info.fileList);
 
         const file = info.file?.originFileObj;
+        console.log({ file });
         const reader = new FileReader();
         setLoading(true);
         reader.readAsDataURL(file);
@@ -55,13 +56,13 @@ const Profile = () => {
           try {
             const { data } = await uploadImage({
               variables: {
-                image: reader.result,
+                image: file,
                 userId: JSON.parse(localStorage.getItem('user'))._id || '',
               },
             });
             console.log('uploaded', data?.uploadProfileImage);
             const userInfo = JSON.parse(localStorage.getItem('user'));
-            userInfo.profileImage = data?.uploadProfileImage?.profileImage;
+            userInfo.profileImage = data?.uploadProfileImage?.filePath;
             localStorage.setItem('user', JSON.stringify(userInfo));
             setLoading(false);
             setRefresh((refresh) => !refresh);
