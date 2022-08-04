@@ -30,7 +30,7 @@ Prism breaker ensures we solve that issue, in allowing the main focus in bringin
 
 ## Usage
 
-- The app is deployed at
+- The app is deployed at https://prism-breaker.herokuapp.com/login 
 
 ## Development and Testing
 
@@ -38,6 +38,7 @@ Prism breaker ensures we solve that issue, in allowing the main focus in bringin
 
 ```sh
 git clone https://github.com/s3793758/
+https://github.com/s3793758/prism-breaker/
 
 cd  ..... still not complete
 ```
