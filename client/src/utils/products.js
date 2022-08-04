@@ -1,28 +1,28 @@
 const products = [
   {
     title: 'Donate for cause',
-    description: 'Donate to support poor people',
+    description: 'Support This Space And Build The Community',
     amount: '5',
     currency: '$',
     qty: 1,
   },
   {
     title: 'Donate for cause',
-    description: 'Donate to support poor people',
+    description: 'Support This Space And Build The Community',
     amount: '10',
     currency: '$',
     qty: 1,
   },
   {
     title: 'Donate for cause',
-    description: 'Donate to support poor people',
+    description: 'Support This Space And Build The Community',
     amount: '15',
     currency: '$',
     qty: 1,
   },
   {
     title: 'Donate for cause',
-    description: 'Donate to support poor people',
+    description: 'Support This Space And Build The Community',
     amount: '25',
     currency: '$',
     qty: 1,
