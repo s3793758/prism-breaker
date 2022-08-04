@@ -1,6 +1,8 @@
 const { gql } = require('apollo-server-express');
+
 const typeDefs = gql`
   scalar Upload
+
   type File {
     filePath: String!
   }
@@ -8,6 +10,7 @@ const typeDefs = gql`
     _id: ID!
     first_name: String!
     last_name: String!
+    username: String!
     email: String!
     gender: String!
     dateOfBirth: String!
@@ -15,15 +18,17 @@ const typeDefs = gql`
     profileImage: String
     posts: [Post!]
   }
+
   type Post {
     _id: ID!
-    userId: String!
+    userId: User
     postMessage: String!
     postImage: String
     postVideo: String
     createdAt: String
     updatedat: String
   }
+
   type PostsType {
     _id: ID!
     postMessage: String!
@@ -33,6 +38,7 @@ const typeDefs = gql`
     createdAt: String
     updatedat: String
   }
+
   type UserDetailsType {
     userId: ID!
     gamingName: String!
@@ -40,6 +46,7 @@ const typeDefs = gql`
     location: String!
     playingPreference: String!
   }
+
   input GameDetailsInput {
     race: RaceSchemaInput
     selectedClass: RaceSchemaInput
@@ -53,19 +60,23 @@ const typeDefs = gql`
 
   type Query {
     users: [User!]
+    user(username: String!): User
     posts(userId: String): [PostsType!]
-    userDetails(userId: ID!): UserDetailsType
-    gameDetails(userId: ID!): GameDetails
+    userDetails(username: String!): UserDetailsType
+    gameDetails(username: String!): GameDetails
   }
+
   input RegisterInput {
     first_name: String!
     last_name: String!
+    username: String!
     email: String!
     password: String!
     gender: String!
     dateOfBirth: String!
     phone: String!
   }
+
   input UserDetailsInput {
     userId: ID!
     gamingName: String!
@@ -73,16 +84,19 @@ const typeDefs = gql`
     location: String!
     playingPreference: String!
   }
+
   input RaceSchemaInput {
     index: String!
     name: String!
     url: String!
   }
+
   type RaceSchema {
     index: String!
     name: String!
     url: String!
   }
+
   type Mutation {
     login(email: String!, password: String!): User
     register(input: RegisterInput!): User

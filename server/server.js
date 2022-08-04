@@ -5,6 +5,7 @@ const { typeDefs, resolvers } = require('./schemas/index');
 
 const { ApolloServer } = require('apollo-server-express');
 const {
+  GraphQLUpload,
   graphqlUploadExpress, // A Koa implementation is also exported.
 } = require('graphql-upload');
 require('./config/connection');
