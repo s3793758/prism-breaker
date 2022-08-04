@@ -1,7 +1,10 @@
 const express = require('express');
-const cors = require('cors');
+const path = require('path');
+//const cors = require('cors');
 const paymentRoutes = require('./routes/payment');
 const { typeDefs, resolvers } = require('./schemas/index');
+
+//   "start": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
 
 const { ApolloServer } = require('apollo-server-express');
 const {
@@ -24,9 +27,15 @@ const server = new ApolloServer({
   await server.start();
   server.applyMiddleware({ app });
 
-  app.use(cors());
+  app.use(express.static(path.join(__dirname, '..', 'client/build')));
+
+  // app.use(cors());
   app.use(express.json({ limit: '10mb' }));
   app.use(paymentRoutes);
+
+  app.use('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'client/build/index.html'));
+  });
 
   app.listen(PORT, () => {
     console.log(`server started on port ${PORT}`);
