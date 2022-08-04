@@ -100,7 +100,7 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): User
     register(input: RegisterInput!): User
-    uploadProfileImage(image: String!, userId: ID!): User
+    uploadProfileImage(image: Upload!, userId: ID!): File!
     addPost(
       postMessage: String!
       postImage: String
