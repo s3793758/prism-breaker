@@ -20,8 +20,6 @@ const server = new ApolloServer({
   resolvers,
 });
 
-//app.use('/api', userRoutes);
-
 (async () => {
   app.use(graphqlUploadExpress());
   await server.start();
