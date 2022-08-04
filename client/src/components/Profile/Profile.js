@@ -183,10 +183,11 @@ const Profile = () => {
               {successMessage && (
                 <p className="success-msg">{successMessage}</p>
               )}
+              <label>Add A Comment</label>
               <Form.Item className="comments-form">
                 <TextArea
                   rows={4}
-                  placeholder="Tell us more"
+                  placeholder="Whats on your mind"
                   name="postMessage"
                   value={postMessage}
                   onChange={handleInputChange}
@@ -203,6 +204,7 @@ const Profile = () => {
                     <Button icon={<UploadOutlined />}>Upload Image</Button>
                   </Upload>
                   */}
+                  <label>Insert Image</label>
                   <input type="file" onChange={handlePostImageChange} />
                   {/* <Button>Video</Button> */}
                 </div>
