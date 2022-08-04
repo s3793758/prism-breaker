@@ -63,7 +63,7 @@ const Navbar = ({ toggleSearch, showSearch }) => {
     toggleSearch(false);
     switch (key) {
       case 'about-us':
-        //  navigate('/home');
+        navigate('/about-us');
         break;
       case 'home':
         navigate('/home');

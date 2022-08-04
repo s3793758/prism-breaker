@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const userRoutes = require('./routes/user');
+const paymentRoutes = require('./routes/payment');
 const { typeDefs, resolvers } = require('./schemas/index');
 
 const { ApolloServer } = require('apollo-server-express');
@@ -26,6 +26,7 @@ const server = new ApolloServer({
 
   app.use(cors());
   app.use(express.json({ limit: '10mb' }));
+  app.use(paymentRoutes);
 
   app.listen(PORT, () => {
     console.log(`server started on port ${PORT}`);
