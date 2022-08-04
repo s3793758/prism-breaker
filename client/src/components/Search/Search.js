@@ -36,6 +36,7 @@ const Search = ({ toggleSearch }) => {
           Search
         </Button>
       </Form>
+      <hr />
     </div>
   );
 };
