@@ -1,0 +1,28 @@
+.slide-container {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.slide-container > img {
+  width: 90%;
+  height: 80vh;
+  margin: auto;
+}
+
+.carousel-images {
+  margin-bottom: 2rem;
+}
+
+.carousel-images .content-text {
+  font-weight: bold;
+  margin-top: 1rem;
+  font-size: 20px;
+  width: 90%;
+  margin: auto;
+}
+
+.ant-carousel .slick-dots-bottom {
+  bottom: 300px !important;
+}

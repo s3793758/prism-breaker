@@ -19,6 +19,9 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectRoute';
 import Home from './components/Home/Home';
 import Profile from './components/Profile/Profile';
 import PublicProfile from './components/PublicProfile/PublicProfile';
+import AboutUs from './components/AboutUs/AboutUs';
+import Success from './components/Success/Success';
+import NotFound from './components/PageNotFound/NotFound';
 
 function App() {
   const [searchedUser, setSearchedUser] = useState('');
@@ -73,28 +76,33 @@ function App() {
             }}
           >
             <Header />
-            <Routes>
-              <Route path="/" element={<Navigate to="/login" />} />
-              <Route path="/login" element={<SignIn />} />
-              <Route path="/register" element={<SignUp />} />
-              <Route
-                path="/profile"
-                element={
-                  <ProtectedRoute>
-                    <Profile />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/home"
-                element={
-                  <ProtectedRoute>
-                    <Home />
-                  </ProtectedRoute>
-                }
-              />
-              <Route path="/profile/:username" element={<PublicProfile />} />
-            </Routes>
+            <div style={{ flex: '1' }}>
+              <Routes>
+                <Route path="/" element={<Navigate to="/login" />} />
+                <Route path="/login" element={<SignIn />} />
+                <Route path="/register" element={<SignUp />} />
+                <Route
+                  path="/profile"
+                  element={
+                    <ProtectedRoute>
+                      <Profile />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/home"
+                  element={
+                    <ProtectedRoute>
+                      <Home />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="/profile/:username" element={<PublicProfile />} />
+                <Route path="/about-us" element={<AboutUs />} />
+                <Route path="/success" element={<Success />} />
+                <Route path="*" element={NotFound} />
+              </Routes>
+            </div>
             <Footer />
           </AuthContext.Provider>
         </BrowserRouter>
