@@ -4,22 +4,21 @@ import { Image } from 'antd';
 import './header.css';
 import Navbar from '../Nav/Navbar';
 import Search from '../Search/Search';
+import Logo from '../../assets/img/crow.jpg';
 
 const Header = () => {
   const [showSearch, setShowSearch] = useState(false);
 
-  const toggleSearch = () => {
-    setShowSearch((show) => !show);
+  const toggleSearch = (show) => {
+    setShowSearch(show);
   };
 
   return (
     <header className="header">
-      <Link to="/">
-        <h1>
-          {/* Prism-Breaker */}
-          <Image width={200} src="../assets/img/logo.jpg" />
-        </h1>
-      </Link>
+      <h1>
+        {/* Prism-Breaker */}
+        <img width={200} src={Logo} alt="Site Logo" />
+      </h1>
       <Navbar showSearch={showSearch} toggleSearch={toggleSearch} />
       {showSearch && <Search toggleSearch={toggleSearch} />}
     </header>

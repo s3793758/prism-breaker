@@ -21,8 +21,8 @@ const Navbar = ({ toggleSearch, showSearch }) => {
   if (isLoggedIn) {
     items = [
       {
-        label: 'Prism-Breaker',
-        key: 'Prism-Breake',
+        label: 'About Us',
+        key: 'about-us',
         icon: <RadarChartOutlined />,
       },
       {
@@ -49,8 +49,8 @@ const Navbar = ({ toggleSearch, showSearch }) => {
     items = [
       // { label: 'Home', key: 'home', icon: <HomeOutlined /> }, // which is required
       {
-        label: 'Prism-Breaker',
-        key: 'Prism-Breake',
+        label: 'About Us',
+        key: 'about-us',
         icon: <RadarChartOutlined />,
         id: 'prism-breaker',
       }, // remember to pass the key prop
@@ -60,12 +60,16 @@ const Navbar = ({ toggleSearch, showSearch }) => {
   }
 
   const handleClick = ({ item, key }) => {
-    toggleSearch();
+    toggleSearch(false);
     switch (key) {
+      case 'about-us':
+        //  navigate('/home');
+        break;
       case 'home':
         navigate('/home');
         break;
       case 'search':
+        toggleSearch(true);
         break;
       case 'profile':
         navigate('/profile');

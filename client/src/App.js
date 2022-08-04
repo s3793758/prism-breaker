@@ -11,6 +11,7 @@ import SignIn from './components/Auth/SignIn';
 import SignUp from './components/Auth/SignUp';
 import AuthContext from './context/AuthContext';
 import './App.css';
+import { Image } from 'antd';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import AppDrawer from './components/AppDrawer/AppDrawer';
@@ -58,7 +59,7 @@ function App() {
 
   return (
     <div className="App">
-      <AppDrawer />
+      <AppDrawer isLoggedIn={isLoggedIn} />
       <div className="container app-container">
         <BrowserRouter>
           <AuthContext.Provider
