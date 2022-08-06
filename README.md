@@ -37,7 +37,7 @@ MongoDb, Express, React, Node, GraphQL
 
 ## Usage
 
-- The app is deployed at https://prism-breaker.herokuapp.com/login 
+- The app is deployed at https://prism-breaker.herokuapp.com/ 
 
 
 ## Installation
