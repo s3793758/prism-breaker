@@ -19,7 +19,7 @@
 - [Introduction](#Introduction)
 - [Usage](#usage)
 - [Installation](#installation)
-- [Video](#Video demo)
+- [Video](#Video)
 - [Credits](#credits)
 - [License](#license)
 
