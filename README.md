@@ -49,11 +49,10 @@ MongoDb, Express, React, Node, GraphQL
 git clone https://github.com/s3793758/
 https://github.com/s3793758/prism-breaker/
 
-cd  ..... still not complete
 ```
 
 ### 1. Install dependencies
-
+In the terminal after cloning type
 ```sh
 npm install  - "install": "cd server && npm install && cd ../client && npm install",
 npm build    - "build": "cd client && npm run build"
