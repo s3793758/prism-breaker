@@ -16,23 +16,21 @@
 
 ## Introduction
 
-Creating a social media site catering to people whom play Dungeon & Dragons,Thus allowing easier and more convenient to access people who want to play, provide easy infromation who is a host, which place will hold an event and communicate to those whom share simillar intrest and linking up to play, remotely or in person.
+Creating a social media platform making it easily accessible for individuals whom are passionate in playing Dungeon & Dragons into connecting with each other,The Concept of this platform compared to other platforms is to allow players to create an account, chose what type of character they are connect via the Dungeon and Dragon API, an discuss their character profile. Future Developments including players looking for players to join their game based on city search, Players looking for a host or would like to host. Blog, Event & Group section.   
 
-This project is based on ensuring users can track on what positive things theyre greatful for in a jugment freezone.
-
-indivduals who like to play dungeons and dragons but find it difficult to find either 1. players to play with or 2. a plce to play at. This social media MERN stack with graphql.
+The issue we are solving is finding players to play with and a location to meet up at.
 
 Prism breaker ensures we solve that issue, in allowing the main focus in bringing like mind indivuals to one platform, where they can see who is hosting what game type near them, if games are hosted locally or even remotelly.
 
-This project is based on indivduals who like to play dungeons and dragons but find it difficult to find either 1. players to play with or 2. a plce to play at. This social media MERN stack with graphql.
+This a MERNG stack.
+MongoDb, Express, React, Node, GraphQL
 
-Prism breaker ensures we solve that issue, in allowing the main focus in bringing like mind indivuals to one platform, where they can see who is hosting what game type near them, if games are hosted locally or even remotelly.
 
 ## Usage
 
 - The app is deployed at https://prism-breaker.herokuapp.com/login 
 
-## Development and Testing
+
 
 ### 0. Git clone and go inside
 
@@ -46,16 +44,15 @@ cd  ..... still not complete
 ### 1. Install dependencies
 
 ```sh
-npm install
+npm install   "install": "cd server && npm install && cd ../client && npm install",
+npm build     "build": "cd client && npm run build"
+npm start     "start": "cd server && npm run start",
 ```
 
-## Usage
-
-```sh
-npm start
-```
 
 ## Video Demo
+https://drive.google.com/file/d/1qYlMBa1NeFYB-7GcJ2re5tiVi8iqWYBt/view
+
 
 ## Credits
 
