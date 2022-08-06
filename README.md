@@ -14,6 +14,15 @@
 ![NODE](https://img.shields.io/badge/-NODE-orange)
 ![GRAPHQL](https://img.shields.io/badge/-GRAPHQL-orange)
 
+## Table of Contents (Optional)
+
+- [Introduction](#Introduction)
+- [Usage](#usage)
+- [Installation](#installation)
+- [Video](#Video demo)
+- [Credits](#credits)
+- [License](#license)
+
 ## Introduction
 
 Creating a social media platform making it easily accessible for individuals whom are passionate in playing Dungeon & Dragons into connecting with each other,The Concept of this platform compared to other platforms is to allow players to create an account, chose what type of character they are connect via the Dungeon and Dragon API, an discuss their character profile. Future Developments including players looking for players to join their game based on city search, Players looking for a host or would like to host. Blog, Event & Group section.   
@@ -31,6 +40,8 @@ MongoDb, Express, React, Node, GraphQL
 - The app is deployed at https://prism-breaker.herokuapp.com/login 
 
 
+## Installation
+
 
 ### 0. Git clone and go inside
 
@@ -44,9 +55,9 @@ cd  ..... still not complete
 ### 1. Install dependencies
 
 ```sh
-npm install   "install": "cd server && npm install && cd ../client && npm install",
-npm build     "build": "cd client && npm run build"
-npm start     "start": "cd server && npm run start",
+npm install  - "install": "cd server && npm install && cd ../client && npm install",
+npm build    - "build": "cd client && npm run build"
+npm start    - "start": "cd server && npm run start",
 ```
 
 
@@ -67,6 +78,7 @@ Antd UI (https://ant.design/)
 [styled-components](https://styled-components.com/)
 
 - BCS Resources
+
 
 ## License
 
